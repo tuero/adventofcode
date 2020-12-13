@@ -11,7 +11,7 @@
 const std::string DELIMS = " -:";
 
 
-int solution1(std::vector<std::string> lines) {
+int solution1(std::vector<std::string> &lines) {
     int count = 0;
     for (auto line : lines) {
         size_t iter_begin = 0, iter_curr = 0;
@@ -40,7 +40,7 @@ int solution1(std::vector<std::string> lines) {
 }
 
 
-int solution2(std::vector<std::string> lines) {
+int solution2(std::vector<std::string> &lines) {
     int count = 0;
     for (auto line : lines) {
         size_t iter_begin = 0, iter_curr = 0;
