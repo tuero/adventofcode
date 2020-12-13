@@ -22,5 +22,14 @@ std::vector<T> read_stdin() {
     return inputs;
 }
 
+std::vector<std::string> read_stdin_lines() {
+    std::vector<std::string> inputs;
+    for (std::string line; std::getline(std::cin, line);) {
+        inputs.push_back(line);
+    }
+
+    return inputs;
+}
+
 } // namespace common
 

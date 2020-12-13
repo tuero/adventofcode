@@ -4,6 +4,8 @@
 
 #include "common.h"
 
+
+// consts
 const int SUM = 2020;
 const int NO_SOLUTION = -1;
 
