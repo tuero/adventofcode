@@ -170,6 +170,6 @@ int main() {
 
     int count1 = solution1(lines);
     std::cout << "Number of valid passports in part 1: " << count1 << std::endl;
-    long long int count2 = solution2(lines);
+    int count2 = solution2(lines);
     std::cout << "Number of valid passports in part 2: " << count2 << std::endl;
 }
