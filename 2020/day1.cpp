@@ -10,6 +10,13 @@ const int SUM = 2020;
 const int NO_SOLUTION = -1;
 
 
+/**
+ * Trivial solution, checks all pairwise elements
+ * 
+ * @param items Vector of numbers
+ * @param sum_to_fund The sum for the pair to find
+ * @return Product of number pair which matches sum
+ */
 int solution1_trivial(std::vector<int> &items, int sum_to_find) {
     // Trivial solution. Here, we simply check every possible pair
     for (std::size_t i = 0; i < items.size(); ++i) {
@@ -23,14 +30,21 @@ int solution1_trivial(std::vector<int> &items, int sum_to_find) {
     return NO_SOLUTION;
 }
 
+/**
+ * Same as above, but sorts the list of ints first then 
+ * finds pair by moving left/right points towards center
+ * 
+ * @param items Vector of numbers
+ * @param sum_to_fund The sum for the pair to find
+ * @return Product of number pair which matches sum
+ */
 int solution1(std::vector<int> &items, int sum_to_find) {
-    // Somewhat better solution, sort then iterate left/right side until solution
-    //   if found or the iteraters touch (i.e. no solution)
     std::sort(items.begin(), items.end());
 
     auto it_left = items.begin();
     auto it_right = std::prev(items.end());
 
+    // Continue until iterators touch or we find solution
     while (it_left != it_right) {
         int left_val = *it_left, right_val = *it_right;
         int curr_sum = left_val + right_val;
@@ -53,8 +67,14 @@ int solution1(std::vector<int> &items, int sum_to_find) {
 }
 
 
+/**
+ * Trivial solution, checks all triplet pairs of elements
+ * 
+ * @param items Vector of numbers
+ * @param sum_to_fund The sum for the triplet to find
+ * @return Product of number triplet which matches sum
+ */
 int solution2_trivial(std::vector<int> &items, int sum_to_find) {
-    // Trivial solution. Here, we simply check every possible triplet
     for (std::size_t i = 0; i < items.size(); ++i) {
         for (std::size_t j = i + 1; j < items.size(); ++j) {
             for (std::size_t k = j + 1; k < items.size(); ++k) {
@@ -69,9 +89,15 @@ int solution2_trivial(std::vector<int> &items, int sum_to_find) {
 }
 
 
+/**
+ * Same as solution1, but we first lock the first term of the triplet,
+ * then use the method from solution 1
+ * 
+ * @param items Vector of numbers
+ * @param sum_to_fund The sum for the triplet to find
+ * @return Product of number triplet which matches sum
+ */
 int solution2(std::vector<int> &items, int sum_to_find) {
-    // Similar to solution1. We lock the first term of the triplet, then use 
-    //    solution1 to look for pairs which add (with the locked term) to the target
     std::sort(items.begin(), items.end());
 
     // Hold the fist item constant
@@ -79,6 +105,7 @@ int solution2(std::vector<int> &items, int sum_to_find) {
         int starting_val =  items[i];
         size_t it_left = 0, it_right = items.size() - 1;
 
+        // Continue until iterators touch or we find solution
         while (it_left != it_right) {
             int left_val = items[it_left], right_val = items[it_right];
             int curr_sum = left_val + right_val + starting_val;

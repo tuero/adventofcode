@@ -11,6 +11,13 @@
 const std::string DELIMS = " -:";
 
 
+/**
+ * Checks each line if the password contains the required number of occurances
+ * for the character rule.
+ * 
+ * @param lines Vector of strings, each element is a line from stdin
+ * @return Count of valid passwords which match their pattern requirements
+ */
 int solution1(std::vector<std::string> &lines) {
     int count = 0;
     for (auto line : lines) {
@@ -40,6 +47,13 @@ int solution1(std::vector<std::string> &lines) {
 }
 
 
+/**
+ * Checks each line if the password contains the required number of occurances
+ * for the character rule.
+ * 
+ * @param lines Vector of strings, each element is a line from stdin
+ * @return Count of valid passwords which match their pattern requirements
+ */
 int solution2(std::vector<std::string> &lines) {
     int count = 0;
     for (auto line : lines) {

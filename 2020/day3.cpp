@@ -5,6 +5,16 @@
 
 #include "common.h"
 
+
+/**
+ * Given a path (represented by the X/Y offsets), counts the number of trees
+ * passed along the traveled path.
+ * 
+ * @param lines Vector of strings, each element is a line from stdin
+ * @param dx The displacement in X along which the path travels
+ * @param dy The displacement in Y along which the path travels
+ * @return Count of trees passed along the path
+ */
 int count_trees(std::vector<std::string> &lines, int dx, int dy) {
     assert (lines.size() > 0);
 
@@ -28,12 +38,27 @@ int count_trees(std::vector<std::string> &lines, int dx, int dy) {
 }
 
 
+/**
+ * Just counts the trees along a single path.
+ * 
+ * @param lines Vector of strings, each element is a line from stdin
+ * @return Count of trees passed along the path
+ */
 int solution1(std::vector<std::string> &lines) {
     return count_trees(lines, 3, 1);
 }
 
+
+/**
+ * Counts the trees along a list of paths and multiples the counts
+ * 
+ * @note Possible overflow, uses 64bit ints.
+ * 
+ * @param lines Vector of strings, each element is a line from stdin
+ * @return Count of trees passed along the path
+ */
 long long int solution2(std::vector<std::string> &lines) {
-    std::vector<std::array<int, 2>> offsets = 
+    static const std::vector<std::array<int, 2>> offsets = 
     {
         {1, 1},
         {3, 1},
@@ -58,5 +83,5 @@ int main() {
     int count1 = solution1(lines);
     std::cout << "Number of trees along path for part 1: " << count1 << std::endl;
     long long int count2 = solution2(lines);
-    std::cout << "Number of trees along path for part 1: " << count2 << std::endl;
+    std::cout << "Number of trees along path for part 2: " << count2 << std::endl;
 }
