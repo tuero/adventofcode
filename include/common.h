@@ -6,12 +6,15 @@
 namespace common {
 
 template <typename T>
-std::vector<T> read_stdin() {
+std::vector<T> read_stdin(const char delimiter = ' ') {
     std::vector<T> inputs;
     T input;
 
     while (std::cin >> input) {
         inputs.push_back(input);
+        if (std::cin.peek() == delimiter) {
+            std::cin.ignore();
+        }
     }
 
     if (!std::cin.eof()) {

@@ -134,8 +134,8 @@ int main() {
     // Get data from stdin
     std::vector<std::string> lines = common::read_stdin_lines();
 
-    std::size_t num1 = solution1(lines);
-    std::cout << "Bus in part 1: " << num1 << std::endl;
+    uint64_t num1 = solution1(lines);
+    std::cout << "Sum of memory in part 1: " << num1 << std::endl;
     uint64_t num2 = solution2(lines);
-    std::cout << "Bus in part 2: " << num2 << std::endl;
+    std::cout << "Sum of memory in part 2: " << num2 << std::endl;
 }
