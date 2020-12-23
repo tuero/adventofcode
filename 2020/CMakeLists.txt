@@ -1,4 +1,4 @@
-set(2020_files 13)
+set(2020_files 14)
 
 foreach(X RANGE 1 ${2020_files})
     add_executable(2020_day${X} day${X}.cpp)
