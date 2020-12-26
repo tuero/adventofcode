@@ -137,8 +137,8 @@ int main() {
     RuleMap rule_map = get_rules(std::vector<std::string>(lines.begin(), split_idx));
     std::vector<std::string> input(split_idx + 1, lines.end());
 
-    // int num1 = solution1(rule_map, input);
-    // std::cout << "Messages matching in part 1: " << num1 << std::endl;
+    int num1 = solution1(rule_map, input);
+    std::cout << "Messages matching in part 1: " << num1 << std::endl;
     int num2 = solution2(rule_map, input);
     std::cout << "Messages matching in part 2: " << num2 << std::endl;
 }
